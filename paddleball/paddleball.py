@@ -25,9 +25,7 @@ canvas.update()
 
 
 class Ball:
-
     def __init__(self, canvas, paddle, block, color):
-
         self.canvas = canvas
         self.paddle = paddle
         self.block = block
@@ -129,7 +127,7 @@ class Ball:
             block_pos5 = self.canvas.coords(self.block.id5)
             List = [block_pos5]
             for i in List:
-                if (pos[0] >= i[0] and pos[2] <= i[2]):
+                if pos[0] >= i[0] and pos[2] <= i[2]:
                     if pos[1] >= i[1] and pos[1] <= i[3]:
                         self.score()
                         global f
@@ -177,7 +175,7 @@ class Ball:
         if pos[1] <= 0:
             self.y = 3
 
-#####################################################################
+        #####################################################################
 
         if self.hit_block(pos) == True:
             self.y = 3
@@ -188,7 +186,7 @@ class Ball:
             if a == 2:
                 canvas.delete(self.block.id)
                 win += 1
-##################################################################
+        ##################################################################
 
         if self.hit_block1(pos) == True:
             self.y = 3
@@ -200,7 +198,7 @@ class Ball:
                 canvas.delete(self.block.id1)
                 win += 1
 
-#########################################################
+        #########################################################
 
         if self.hit_block2(pos) == True:
             self.y = 3
@@ -212,7 +210,7 @@ class Ball:
                 canvas.delete(self.block.id2)
                 win += 1
 
-#####################################################################
+        #####################################################################
         if self.hit_block3(pos) == True:
             self.y = 3
             canvas.itemconfig(self.block.id3, fill="yellow")
@@ -222,8 +220,7 @@ class Ball:
                 canvas.delete(self.block.id3)
                 win += 1
 
-
-##################################################################
+        ##################################################################
         if self.hit_block4(pos) == True:
             self.y = 3
             canvas.itemconfig(self.block.id4, fill="yellow")
@@ -232,7 +229,7 @@ class Ball:
             if e == 3:
                 canvas.delete(self.block.id4)
                 win += 1
-#######################################################################
+        #######################################################################
         global f
         if f == 4:
             canvas.delete(self.block.id5)
@@ -244,8 +241,7 @@ class Ball:
             self.y = -3
             canvas.itemconfig(self.block.id5, fill="yellow")
 
-
-#############################################################################
+        #############################################################################
         global g
         if g == 4:
             canvas.delete(self.block.id6)
@@ -319,7 +315,7 @@ class Paddle:
 
 paddle = Paddle(canvas, "blue")
 block = Block(canvas, "green")
-ball = Ball(canvas, paddle, block, 'red')
+ball = Ball(canvas, paddle, block, "red")
 
 
 while 1:
@@ -332,9 +328,10 @@ while 1:
         paddle.draw()
     if ball.hit_bottom == True:
         time.sleep(1)
-        canvas.create_text(270, 200, text="GAME OVER", font=28, fill='white')
-        canvas.create_text(270, 250, text=" Score = " +
-                           str(counter), font=28, fill='white')
+        canvas.create_text(270, 200, text="GAME OVER", font=28, fill="white")
+        canvas.create_text(
+            270, 250, text=" Score = " + str(counter), font=28, fill="white"
+        )
 
     if (a + b + c + d + e + f + g) > 18:
         time.sleep(1)
@@ -342,8 +339,9 @@ while 1:
         ball.x = 0
         paddle.x = 0
         canvas.create_text(270, 200, text="YOU WIN!", font=28, fill="white")
-        canvas.create_text(270, 250, text=" Score = " +
-                           str(counter), font=28, fill="white")
+        canvas.create_text(
+            270, 250, text=" Score = " + str(counter), font=28, fill="white"
+        )
 
     tk.update_idletasks()
     tk.update()

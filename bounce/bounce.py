@@ -1,8 +1,9 @@
 from tkinter import *
 import random
 import time
+
 tk = Tk()
-tk. title("Bounce!")
+tk.title("Bounce!")
 tk.resizable(0, 0)
 tk.wm_attributes("-topmost", 1)
 canvas = Canvas(tk, width=500, height=500, bd=0, highlightthickness=0)
@@ -11,7 +12,6 @@ tk.update()
 
 
 class Ball:
-
     def __init__(self, canvas, paddle, color):
         self.canvas = canvas
         self.paddle = paddle
@@ -50,15 +50,14 @@ class Ball:
 
 
 class Paddle:
-
     def __init__(self, canvas, color):
         self.canvas = canvas
         self.id = canvas.create_rectangle(0, 0, 100, 10, fill=color)
         self.canvas.move(self.id, 200, 300)
         self.x = 0
         self.canvas_width = self.canvas.winfo_width()
-        self.canvas.bind_all('<KeyPress-Left>', self.turn_left)
-        self.canvas.bind_all('<KeyPress-Right>', self.turn_right)
+        self.canvas.bind_all("<KeyPress-Left>", self.turn_left)
+        self.canvas.bind_all("<KeyPress-Right>", self.turn_right)
 
     def draw(self):
         self.canvas.move(self.id, self.x, 0)
@@ -75,8 +74,8 @@ class Paddle:
         self.x = 2
 
 
-paddle = Paddle(canvas, 'blue')
-ball = Ball(canvas, paddle, 'red')
+paddle = Paddle(canvas, "blue")
+ball = Ball(canvas, paddle, "red")
 
 
 while 1:
