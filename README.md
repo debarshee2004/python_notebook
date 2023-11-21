@@ -1,3 +1,5 @@
+![logo](python.png)
+
 # Python Projects Collection
 
 Welcome to the Python Projects Collection repository! This repository is a curated collection of Python projects that cover a wide range of topics and use cases. Whether you're a beginner looking to learn Python or an experienced developer looking for some interesting code examples, you'll find something here to pique your interest.
