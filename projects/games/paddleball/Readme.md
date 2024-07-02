@@ -1,4 +1,5 @@
 # Paddleball! - A Simple Python Game
+
 This is a simple paddleball game created in Python using the Tkinter library. The game involves bouncing a ball off a paddle, trying to keep the ball from falling off the bottom of the screen.
 
 ## Requirements
@@ -19,6 +20,7 @@ This is a simple paddleball game created in Python using the Tkinter library. Th
 3. Bounce the ball with the paddle and prevent it from falling to the bottom of the screen.
 
 4. If the ball reaches the bottom of the screen, you'll see a "Game Over" message.
+
 ## Game Controls
 
 - Move the paddle left: Press the **Left Arrow** key.
