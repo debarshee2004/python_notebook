@@ -1,25 +1,40 @@
-"""
-CRUD Operations using Python and Files.
-"""
-
 import json
 
 
 def loadData(fileName):
+    """
+    Load data from a JSON file. If the file does not exist, return an empty list.
+
+    Args: fileName (str): The name of the file to load data from.
+
+    Returns: list: The list of videos.
+    """
     try:
         with open(fileName, "r") as file:
-            test = json.load(file)
-            return test
+            data = json.load(file)
+            return data
     except FileNotFoundError:
         return []
 
 
 def saveData_Helper(fileName, videos):
+    """
+    Save data to a JSON file.
+
+    Args:
+        fileName (str): The name of the file to save data to.
+        videos (list): The list of videos to save.
+    """
     with open(fileName, "w") as file:
         json.dump(videos, file)
 
 
 def listAllVideos(videos):
+    """
+    Print all videos in the list.
+
+    Args: videos (list): The list of videos to print.
+    """
     print("\n")
     print("*" * 70)
     for index, video in enumerate(videos, start=1):
@@ -29,6 +44,13 @@ def listAllVideos(videos):
 
 
 def addVideo(fileName, videos):
+    """
+    Prompt the user to enter a new video's name and duration, and add it to the list.
+
+    Args:
+        fileName (str): The name of the file to save data to.
+        videos (list): The list of videos to update.
+    """
     name = input("Enter video name: ")
     time = input("Enter video time: ")
     videos.append({"name": name, "time": time})
@@ -36,6 +58,13 @@ def addVideo(fileName, videos):
 
 
 def updateVideo(fileName, videos):
+    """
+    Prompt the user to select a video to update, and update its details.
+
+    Args:
+        fileName (str): The name of the file to save data to.
+        videos (list): The list of videos to update.
+    """
     listAllVideos(videos)
     index = int(input("Enter the video number to update: "))
     if 1 <= index <= len(videos):
@@ -48,9 +77,15 @@ def updateVideo(fileName, videos):
 
 
 def deleteVideo(fileName, videos):
+    """
+    Prompt the user to select a video to delete, and remove it from the list.
+
+    Args:
+        fileName (str): The name of the file to save data to.
+        videos (list): The list of videos to update.
+    """
     listAllVideos(videos)
     index = int(input("Enter the video number to be deleted: "))
-
     if 1 <= index <= len(videos):
         del videos[index - 1]
         saveData_Helper(fileName, videos)
@@ -59,11 +94,14 @@ def deleteVideo(fileName, videos):
 
 
 def main():
+    """
+    Main function to run the YouTube Manager App, providing options to list,
+    add, update, or delete videos, or to exit the application.
+    """
     fileName = "youtube.txt"
     videos = loadData(fileName)
     while True:
         print("\nYouTube Manager App")
-
         print("1. List all youtube videos.")
         print("2. Add a youtube video.")
         print("3. Update a youtube video.")
