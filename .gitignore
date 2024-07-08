@@ -1,5 +1,2 @@
 # evn folders
-env/Include/
-env/Lib/
-env/Scripts/
-env/share/
+.venv
